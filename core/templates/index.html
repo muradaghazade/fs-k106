@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-
+{% load static %}
 {% block content %}
 <section class="home-slider owl-carousel">
     {% for story in stories %}
@@ -14,7 +14,7 @@
                         <h3 class="subheading mb-3">Featured Posts</h3>
                         <h1 class="mb-5">{{story.title | truncatewords:4}}</h1>
                         <p class="mb-md-5">{{story.description | truncatewords:10}}</p>
-                        <p><a href="#" class="btn btn-black px-3 px-md-4 py-3">Read More <span
+                        <p><a href="{% url 'core:story_detail' story.id%}" class="btn btn-black px-3 px-md-4 py-3">Read More <span
                             class="icon-arrow_forward ml-lg-4"></span></a></p>
                     </div>
                 </div>
@@ -40,8 +40,8 @@
                         <div class="overlay"></div>
                         <div class="text">
                             <span class="subheading">{{recent_story.category}}</span>
-                            <h3><a href="single.html">{{recent_story.title}}</a></h3>
-                            <p class="mb-0"><a href="single.html" class="btn-custom">Read More <span
+                            <h3><a href="{% url 'core:story_detail' recent_story.id%}">{{recent_story.title}}</a></h3>
+                            <p class="mb-0"><a href="{% url 'core:story_detail' recent_story.id%}" class="btn-custom">Read More <span
                                 class="icon-arrow_forward ml-4"></span></a></p>
                         </div>
                     </div>
@@ -52,14 +52,14 @@
                     {% for story in stories %}
                     <div class="col-md-6 ftco-animate">
                         <div class="blog-entry">
-                            <a href="single.html" class="img d-flex align-items-end" style="background-image: url({{story.image.url}});">
+                            <a href="{% url 'core:story_detail' story.id%}" class="img d-flex align-items-end" style="background-image: url({{story.image.url}});">
                                 <div class="overlay"></div>
                             </a>
                             <div class="text pt-3">
                                 <p class="meta d-flex"><span class="pr-3">{{story.category}}</span><span class="ml-auto pl-3">{{story.date | date:"M d, Y"}}</span>
                                 </p>
-                                <h3><a href="single.html">{{story.title}}</a></h3>
-                                <p class="mb-0"><a href="single.html" class="btn-custom">Read More <span
+                                <h3><a href="{% url 'core:story_detail' story.id%}">{{story.title}}</a></h3>
+                                <p class="mb-0"><a href="{% url 'core:story_detail' story.id%}" class="btn-custom">Read More <span
                                     class="icon-arrow_forward ml-4"></span></a></p>
                             </div>
                         </div>
@@ -161,7 +161,7 @@
                                 <div class="text">
                                     <span class="subheading">{{story.category}}</span>
                                     <h3><a href="#">{{story.title}}</a></h3>
-                                    <p class="mb-0"><a href="#" class="btn-custom">Read More <span
+                                    <p class="mb-0"><a href="{% url 'core:story_detail' story.id%}" class="btn-custom">Read More <span
                                         class="icon-arrow_forward ml-4"></span></a></p>
                                 </div>
                             </div>
@@ -196,7 +196,7 @@
     <div class="container">
         <div class="row d-flex">
             <div class="col-md-6 d-flex">
-                <div class="img d-flex align-self-stretch" style="background-image:url(images/about.jpg);"></div>
+                <div class="img d-flex align-self-stretch" style="background-image:url({% static 'images/about.jpg' %});"></div>
             </div>
             <div class="col-md-6 pl-md-5 py-5">
                 <div class="row justify-content-start pb-3">
