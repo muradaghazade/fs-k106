@@ -29,7 +29,7 @@
                 <div class="tag-widget post-tag-container mb-5 mt-5">
                     <div class="tagcloud">
                         {% for tag in data.tags.all %}
-                        <a href="#" class="tag-cloud-link">{{tag.title}}</a>
+                        <a href="{% url 'core:stories' %}?tag={{tag.title}}" class="tag-cloud-link">#{{tag.title}}</a>
                         {% endfor %}
                     </div>
                 </div>
@@ -183,7 +183,7 @@
                     <ul class="categories">
                         <h3 class="heading mb-4">Categories</h3>
                         {% for category in categories %}
-                        <li><a href="#">{{category.title}}</a></li>
+                        <li><a href="{% url 'core:stories' %}?cat={{category.title}}">{{category.title}}</a></li>
                         {% endfor %}
                     </ul>
                 </div>
@@ -209,7 +209,7 @@
                     <h3 class="heading mb-4">Tag Cloud</h3>
                     <div class="tagcloud">
                         {% for tag in tags %}
-                        <a href="#" class="tag-cloud-link">{{tag.title}}</a>
+                        <a href="{% url 'core:stories' %}?tag={{tag.title}}" class="tag-cloud-link">#{{tag.title}}</a>
                         {% endfor %}
                     </div>
                 </div>

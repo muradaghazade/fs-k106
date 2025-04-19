@@ -21,8 +21,8 @@ class Recipe(models.Model):
     image = models.ImageField(upload_to='images/')
     text = models.TextField()
     date = models.DateTimeField(auto_now_add=True)
-    # category
-    # tags
+    category = models.ForeignKey('Category', related_name='recipes', on_delete=models.CASCADE, null=True, blank=True)
+    tags = models.ManyToManyField('Tag', related_name='recipes', null=True, blank=True)
     # user
     # comments
 
