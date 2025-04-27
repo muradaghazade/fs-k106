@@ -10,4 +10,5 @@ urlpatterns = [
     path('stories/', stories, name='stories'),
     path('recipes/', recipes, name='recipes'),
     path('contact/', contact, name='contact'),
+    path('about/', about, name='about'),
 ]

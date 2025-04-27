@@ -89,3 +89,7 @@ def contact(request):
         'form': form
     }
     return render(request, 'contact.html', context=context)
+
+
+def about(request):
+    return render(request, 'about.html')
